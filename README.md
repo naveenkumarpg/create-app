@@ -50,8 +50,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 /\bP(ost|ostal)?([ \.]*O(ffice)?)?([ \.]*Box)?\b/i;
 
 function hasPOBoxAddress(text) {
-  const poBoxRegex = /\bPO\s?BOX\b|\bP\.\s?O\.\s?BOX\b/i;
+  const poBoxRegex = /\bPO\s?BOX\b|\bP\.?\s?O\.?\s?BOX\b/i;
 
   return poBoxRegex.test(text);
 }
-
