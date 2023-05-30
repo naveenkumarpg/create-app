@@ -46,4 +46,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 /^[A-Z]{1,2}[A-Z0-9]{1,2} ?[0-9][A-Z]{2}$/i;
+
 /\bP(ost|ostal)?([ \.]*O(ffice)?)?([ \.]*Box)?\b/i;
+
+function hasPOBoxAddress(text) {
+  const poBoxRegex = /\bPO\s?BOX\b|\bP\.\s?O\.\s?BOX\b/i;
+
+  return poBoxRegex.test(text);
+}
+
