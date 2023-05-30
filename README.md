@@ -55,3 +55,8 @@ function hasPOBoxAddress(text) {
 
   return poBoxRegex.test(text);
 }
+
+
+const poBoxRegex = /\b(PO|POST\sOFFICE)\s?BOX\b|\bP\.?\s?O\.?\s?BOX\b/i;
+
+
