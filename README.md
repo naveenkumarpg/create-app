@@ -62,4 +62,6 @@ const poBoxRegex = /\b(PO|POST\sOFFICE)\s?BOX\b|\bP\.?\s?O\.?\s?BOX\b/i;
 
 const regex = /^(?! )(?!.* $)(?!.*  )[^\s]+( [^\s]+)*$/;
 
+const regex = /^(?! )(?!.* $)(?!.*  )[^\s]*( [^\s]+)*$/;
+
 
