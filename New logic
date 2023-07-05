@@ -1,0 +1,49 @@
+import React, { useState, useRef } from 'react';
+
+const SortCodeInput = () => {
+  const [sortCode, setSortCode] = useState(['', '', '']);
+  const inputsRef = [useRef(), useRef(), useRef()];
+
+  const handleInputChange = (e, index) => {
+    const { value } = e.target;
+    const newSortCode = [...sortCode];
+    newSortCode[index] = value;
+
+    setSortCode(newSortCode);
+
+    if (value.length === 2 && index < 2) {
+      inputsRef[index + 1].current.focus();
+    } else if (value.length === 0 && index > 0) {
+      inputsRef[index - 1].current.focus();
+    }
+  };
+
+  const handleKeyPress = (e, index) => {
+    const { key } = e;
+
+    if (!/^\d$/.test(key)) {
+      e.preventDefault();
+    } else if (index === 2 && value.length === 1 && /^\d$/.test(key)) {
+      setSortCode([...sortCode, key]);
+      inputsRef[2].current.blur();
+    }
+  };
+
+  return (
+    <div>
+      {sortCode.map((value, index) => (
+        <input
+          key={index}
+          type="text"
+          value={value}
+          onChange={(e) => handleInputChange(e, index)}
+          onKeyPress={(e) => handleKeyPress(e, index)}
+          maxLength={2}
+          ref={inputsRef[index]}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default SortCodeInput;
